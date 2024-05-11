@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} detail page {% endblock %}
+{% block content %}
+<h1> <center> vehicle details</center></h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            {% if b.image %}
+                <!-- Display image -->
+                <img src="{{ b.image.url }}" width="300px" height="500px" class="img-fluid" alt="picture of vehicle">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <div class="details">
+                <h2>{{ b.model_name }}</h2>
+                <p>Year: {{ b.year }}</p>
+<!--                <p>Description: {{ m.description }}</p>-->
+
+<p> <a href="{% url 'edit' b.id %}" class="btn btn-warning">Update</a>
+                <a href="{% url 'delete' b.id %}" class="btn btn-danger">Delete</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

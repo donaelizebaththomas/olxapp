@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Edit Vehicle{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center m-3">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Edit Vehicle</div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="model_type">Model Type:</label>
+                            <input type="text" class="form-control" id="model_type" name="model_type" value="{{ form.model_type.value }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="model_name">Model Name:</label>
+                            <input type="text" class="form-control" id="model_name" name="model_name" value="{{ form.model_name.value }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="year">Year:</label>
+                            <input type="number" class="form-control" id="year" name="year" value="{{ form.year.value }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="number" class="form-control" id="price" name="price" value="{{ form.price.value }}" required>
+                        </div>
+                        <div class="form-group m-1">
+                            <label for="image">Image:</label>
+                            <input type="file" class="form-control-file" id="image" name="image">
+                        </div>
+                        <button type="submit" class="btn btn-primary m-2">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

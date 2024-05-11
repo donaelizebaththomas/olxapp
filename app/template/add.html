@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Vehicle Registration{% endblock %}
+{% block content %}
+<center>
+    <h2>Register Vehicle</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="model_type">Model Type:</label><br>
+        <input type="text" id="model_type" name="model_type" required><br>
+
+        <label for="model_name">Model Name:</label><br>
+        <input type="text" id="model_name" name="model_name" required><br>
+
+        <label for="year">Year:</label><br>
+        <input type="number" id="year" name="year" required><br>
+
+        <label for="price">Price:</label><br>
+        <input type="number" id="price" name="price" required><br>
+
+        <label for="image">Image:</label><br>
+        <input type="file" id="image" name="image"><br>
+
+        <button type="submit" class="m-3">Register</button>
+    </form>
+    </center>
+{% endblock %}
